@@ -1,0 +1,21 @@
+name: Postman Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1  
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Newman
+      run: npm install -g newman
+    - name: Run the Postman tests
+      run: newman run "collection.json"
