@@ -4,10 +4,8 @@ on: push
 
 jobs:
   build:
-    runs-on: 
-     name: postman/newman:latest
-     entrypoint: [""]
-
+    runs-on: postman/newman:latset
+ 
     
  
     steps:
